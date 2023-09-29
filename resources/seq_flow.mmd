@@ -1,0 +1,19 @@
+
+    sequenceDiagram
+        participant M as Main
+        participant V as VulnerabilityDetection
+        participant P as PatchGeneration
+        participant PM as ProjectManagement
+        participant S as ScoringEvaluation
+        participant C as CommercializationTransition
+        M->>V: detect_vulnerability(code)
+        V-->>M: vulnerabilities
+        M->>P: generate_patch(vulnerability)
+        P-->>M: patches
+        M->>PM: create_project(project)
+        PM-->>M: project
+        M->>S: evaluate(vulnerability, patch)
+        S-->>M: scores
+        M->>C: develop_plan()
+        C-->>M: plan
+    

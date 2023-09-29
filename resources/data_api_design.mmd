@@ -1,0 +1,34 @@
+
+    classDiagram
+        class Main{
+            +Flask app
+            +run()
+        }
+        class VulnerabilityDetection{
+            +list vulnerabilities
+            +detect_vulnerability(code: str)
+        }
+        class PatchGeneration{
+            +list patches
+            +generate_patch(vulnerability: str)
+        }
+        class ProjectManagement{
+            +list projects
+            +create_project(project: str)
+            +update_project(project: str)
+            +delete_project(project: str)
+        }
+        class ScoringEvaluation{
+            +dict scores
+            +evaluate(vulnerability: str, patch: str)
+        }
+        class CommercializationTransition{
+            +str plan
+            +develop_plan()
+        }
+        Main -- VulnerabilityDetection: uses
+        Main -- PatchGeneration: uses
+        Main -- ProjectManagement: uses
+        Main -- ScoringEvaluation: uses
+        Main -- CommercializationTransition: uses
+    
