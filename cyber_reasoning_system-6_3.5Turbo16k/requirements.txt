@@ -1,0 +1,5 @@
+MetaGPT==1.0.0
+MISP==2.4.131
+SecurityOnion==2.3.25
+Bandit==1.7.0
+OWASP-ZAP==2.10.0

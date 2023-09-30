@@ -1,0 +1,46 @@
+
+    sequenceDiagram
+        participant D as Developer
+        participant CRS as Cyber Reasoning System
+        participant PG as PatchGenerator
+        participant SA as StaticAnalyzer
+        participant DA as DynamicAnalyzer
+        participant MI as MISPIntegration
+        participant NM as NetworkMonitor
+        
+        D->>CRS: identify_vulnerabilities()
+        activate CRS
+        CRS->>SA: analyze_code(code)
+        activate SA
+        SA-->>CRS: vulnerabilities
+        deactivate SA
+        CRS->>DA: analyze_application(application)
+        activate DA
+        DA-->>CRS: vulnerabilities
+        deactivate DA
+        CRS->>MI: get_threat_intelligence()
+        activate MI
+        MI-->>CRS: threat_intelligence
+        deactivate MI
+        CRS->>PG: generate_patch(vulnerability)
+        activate PG
+        PG-->>CRS: patch
+        deactivate PG
+        D->>CRS: remediate_vulnerabilities(vulnerabilities)
+        activate CRS
+        CRS->>PG: generate_patch(vulnerability)
+        activate PG
+        PG-->>CRS: patch
+        deactivate PG
+        CRS-->>D: vulnerabilities, patches
+        deactivate CRS
+        
+        D->>CRS: monitor_network()
+        activate CRS
+        CRS->>NM: monitor_network()
+        activate NM
+        NM-->>CRS: network_events
+        deactivate NM
+        CRS-->>D: network_events
+        deactivate CRS
+    
